@@ -26,12 +26,44 @@
             --error-red: #ef476f;
             --text-main: #f8f9fa;
             --text-sub: #b7e4c7;
+            --quiz-bg: rgba(4, 21, 12, 0.7);
+            --option-bg: rgba(255, 255, 255, 0.03);
+            --option-border: rgba(255, 255, 255, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.6);
+            --theme-btn-bg: rgba(255, 255, 255, 0.08);
+            --theme-btn-border: rgba(149, 213, 178, 0.3);
+            --theme-btn-color: #ffd166;
+            --h1-gradient: linear-gradient(135deg, #ffffff 20%, #95d5b2 75%, #ffd166 100%);
+        }
+
+        [data-theme="light"] {
+            --bg-gradient: radial-gradient(circle at 10% 20%, #e8f5e9 0%, #d8f3dc 50%, #b7e4c7 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(45, 106, 79, 0.25);
+            --primary-light: #081c15;
+            --accent-sage: #1b4332;
+            --accent-green: #2d6a4f;
+            --accent-emerald: #1b4332;
+            --accent-gold: #b07d10;
+            --accent-cyan: #0077b6;
+            --error-red: #d90429;
+            --text-main: #081c15;
+            --text-sub: #2d6a4f;
+            --quiz-bg: rgba(240, 253, 244, 0.95);
+            --option-bg: rgba(255, 255, 255, 0.9);
+            --option-border: rgba(45, 106, 79, 0.2);
+            --shadow-color: rgba(0, 40, 20, 0.15);
+            --theme-btn-bg: rgba(45, 106, 79, 0.12);
+            --theme-btn-border: rgba(45, 106, 79, 0.3);
+            --theme-btn-color: #1b4332;
+            --h1-gradient: linear-gradient(135deg, #081c15 10%, #1b4332 70%, #2d6a4f 100%);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -194,7 +226,7 @@
             font-size: 3.2rem;
             font-weight: 800;
             line-height: 1.15;
-            background: linear-gradient(135deg, #ffffff 20%, var(--accent-sage) 75%, var(--accent-gold) 100%);
+            background: var(--h1-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 18px;
@@ -210,6 +242,28 @@
             text-align: center;
         }
 
+        /* Botón Modo Claro / Oscuro */
+        .theme-toggle-btn {
+            background: var(--theme-btn-bg);
+            border: 1px solid var(--theme-btn-border);
+            color: var(--theme-btn-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-green);
+        }
+
         /* Tarjetas de Arquitectura */
         .features-grid {
             display: grid;
@@ -219,8 +273,8 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--option-bg);
+            border: 1px solid var(--option-border);
             border-radius: 22px;
             padding: 26px 22px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -241,10 +295,10 @@
         }
 
         .feature-card:hover {
-            background: rgba(255, 255, 255, 0.07);
+            background: var(--card-bg);
             transform: translateY(-6px);
             border-color: var(--accent-green);
-            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 16px 30px var(--shadow-color);
         }
 
         .feature-card:hover::before {
@@ -273,12 +327,12 @@
 
         /* SECCIÓN DEL QUIZ INTERACTIVO */
         .quiz-section {
-            background: rgba(4, 21, 12, 0.7);
-            border: 1px solid rgba(82, 183, 136, 0.3);
+            background: var(--quiz-bg);
+            border: 1px solid var(--card-border);
             border-radius: 26px;
             padding: 36px 32px;
             margin-top: 40px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 45px var(--shadow-color);
             position: relative;
         }
 
@@ -367,13 +421,14 @@
             display: flex;
             align-items: flex-start;
             gap: 14px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--option-bg);
+            border: 1px solid var(--option-border);
             border-radius: 16px;
             padding: 16px 20px;
             cursor: pointer;
             transition: all 0.25s ease;
             user-select: none;
+            color: var(--text-main);
         }
 
         .option-item:hover {
@@ -536,15 +591,21 @@
     <div class="ambient-light-2"></div>
 
     <div class="container">
-        <!-- Barra Superior con la identidad del estudiante y estado -->
+        <!-- Barra Superior con la identidad del estudiante, estado y selector de tema -->
         <div class="header-top">
             <div class="author-badge">
                 <div class="author-avatar">AF</div>
                 <div class="author-text">Desarrollado por: <strong>Andrés Felipe Escobar Patiño</strong></div>
             </div>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                Flask 3.1 & Gunicorn • Servidor Operativo
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" title="Cambiar Tema Claro/Oscuro">
+                    <span id="themeIcon">☀️</span>
+                    <span id="themeText">Modo Claro</span>
+                </button>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Flask 3.1 & Gunicorn • Servidor Operativo
+                </div>
             </div>
         </div>
 
@@ -730,6 +791,36 @@
                 btn.textContent = 'Reintentar';
             }
         }
+
+        /* Lógica para Tema Claro / Oscuro */
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('pref-theme', newTheme);
+            updateThemeButton(newTheme);
+        }
+
+        function updateThemeButton(theme) {
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (theme === 'light') {
+                if (icon) icon.textContent = '🌙';
+                if (text) text.textContent = 'Modo Oscuro';
+            } else {
+                if (icon) icon.textContent = '☀️';
+                if (text) text.textContent = 'Modo Claro';
+            }
+        }
+
+        // Cargar tema guardado o por defecto
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('pref-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeButton(savedTheme);
+        })();
     </script>
 </body>
 
