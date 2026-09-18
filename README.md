@@ -10,17 +10,17 @@
 
 | Ítem | Descripción | Evidencia / Enlace |
 | :--- | :--- | :--- |
-| **1. Fork de GitHub** | Enlace del Fork con la modificación realizada | `https://github.com/aescobar16/P2_ParcialFeibert` |
-| **2. Pull Request** | Enlace del PR hacia el repositorio original | *(Coloca aquí el enlace generado tras abrir el PR)* |
-| **3. Despliegue en Render** | Enlace público de la aplicación en producción | *(Coloca aquí tu URL pública de Render: https://...onrender.com)* |
-| **4. Ejecución local** | Evidencia de ejecución con `.venv` activo | `http://127.0.0.1:5000` (Ver sección de ejecución local) |
-| **5. Despliegue en Render** | Evidencia de servicio activo en la nube | Servicio Web configurado con `gunicorn app:app` |
+| **1. Fork de GitHub** | Enlace del Fork con la modificación realizada | [https://github.com/aescobar16/P2_ParcialFeibert](https://github.com/aescobar16/P2_ParcialFeibert) |
+| **2. Pull Request** | Enlace del PR hacia el repositorio original | [Pull Request #10 - Andrés Felipe Escobar Patiño](https://github.com/g3in-unilasallista/mi_proyecto_python/pull/10) |
+| **3. Despliegue en Render** | Enlace público de la aplicación en producción | [https://p2-parcialfeibert.onrender.com](https://p2-parcialfeibert.onrender.com/) |
+| **4. Ejecución local** | Evidencia de ejecución con entorno local activo | `http://127.0.0.1:5000` (Consola: Flask run con código 200 OK) |
+| **5. Despliegue en Render** | Evidencia de servicio activo en la nube | Servicio Web desplegado y corriendo con `gunicorn app:app` |
 
 ---
 
 ## 1. Fork del Repositorio
 - Se realizó el Fork del repositorio original `q3in-unilasallista/mi_proyecto_python.git` hacia la cuenta personal de GitHub:
-  - Repositorio Fork: `https://github.com/aescobar16/P2_ParcialFeibert`
+  - Repositorio Fork: [https://github.com/aescobar16/P2_ParcialFeibert](https://github.com/aescobar16/P2_ParcialFeibert)
 
 ---
 
@@ -52,10 +52,14 @@ pip install -r requirements.txt
 
 ### D. Ejecución y Visualización en el Navegador
 ```powershell
-$env:FLASK_APP = "app.py"
-flask run
+PS C:\Users\sala1\Desktop\Parcial Feibert> flask run
+>>
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
 ```
-- **Visualización en el navegador:** [http://127.0.0.1:5000](http://127.0.0.1:5000) (Código HTTP 200 OK).
+- **Visualización en el navegador:** [http://127.0.0.1:5000](http://127.0.0.1:5000) (Servidor de desarrollo activo respondiendo correctamente).
 
 ---
 
@@ -101,7 +105,8 @@ git push origin feature/quiz-interactivo
 
 ## 6. Creación del Pull Request
 
-Se generó la solicitud de extracción (Pull Request) hacia el repositorio original `q3in-unilasallista/mi_proyecto_python.git`.
+Se generó formalmente la solicitud de extracción (Pull Request) hacia el repositorio original `q3in-unilasallista/mi_proyecto_python.git`:
+- **Enlace del Pull Request:** [Pull Request #10 - Sección creativa y quiz interactivo de arquitectura - Andrés Felipe Escobar Patiño](https://github.com/g3in-unilasallista/mi_proyecto_python/pull/10)
 
 ### Descripción del Pull Request (Párrafo Creativo Obligatorio):
 > **Andrés Felipe Escobar Patiño** presenta una profunda renovación visual y arquitectónica del proyecto, elevando la interfaz HTML/CSS mediante una sofisticada estética *glassmorphism* con gradientes orgánicos, iluminación ambiental y micro-interacciones responsivas que proporcionan una experiencia de usuario moderna y profesional. Como aporte funcional y pedagógico, se diseñó e implementó un módulo interactivo de Quiz sobre Stack y Arquitecturas de Software (Hexagonal, WSGI con Gunicorn y Microservicios), el cual valida asíncronamente las respuestas del estudiante a través de un endpoint desacoplado en Flask, brindando retroalimentación técnica instantánea y dejando el sistema completamente optimizado para su despliegue continuo en la nube mediante Render.
@@ -111,11 +116,13 @@ Se generó la solicitud de extracción (Pull Request) hacia el repositorio origi
 ## 7. Despliegue en la Nube (Render) y Pipeline del Trabajo
 
 ### Actividad 1 & 2: Registro, Configuración y Verificación
+- **URL Pública del Despliegue en Producción:** [https://p2-parcialfeibert.onrender.com](https://p2-parcialfeibert.onrender.com/)
 - Archivo `Procfile` configurado para producción:
   ```procfile
   web: gunicorn app:app
   ```
 - Configuración en el panel de Render:
+  - **Service URL:** `https://p2-parcialfeibert.onrender.com`
   - **Type:** Web Service
   - **Build Command:** `pip install -r requirements.txt`
   - **Start Command:** `gunicorn app:app`
